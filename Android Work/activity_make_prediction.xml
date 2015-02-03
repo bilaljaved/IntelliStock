@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="10dp"
+        android:text="Make Prediction"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:layout_below="@+id/textView1"
+        android:background="@color/grey"
+        android:textColorHint="@color/hint"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Prediction Date"/>
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText1"
+        android:background="@color/grey"
+        android:layout_alignEnd="@+id/editText1"
+        android:layout_alignRight="@+id/editText1"
+        android:layout_marginTop="25dp"
+        android:layout_alignStart="@+id/editText1"
+        android:layout_alignLeft="@+id/editText1"/>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="View System Prediction"
+        android:layout_below="@+id/spinner1"
+        android:background="@drawable/buttonshape"
+        android:textColor="@color/white"
+        android:layout_alignEnd="@+id/spinner1"
+        android:layout_alignRight="@+id/spinner1"
+        android:layout_marginTop="35dp"
+        android:layout_alignStart="@+id/spinner1"
+        android:layout_alignLeft="@+id/spinner1"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/button4"
+        android:layout_alignStart="@+id/spinner1"
+        android:layout_alignLeft="@+id/spinner1">
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:textColor="@color/green"
+            android:text="No Change" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            android:text="Up" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            android:text="Down" />
+    </RadioGroup>
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPicker"
+        android:layout_alignTop="@+id/radioGroup1"
+        android:layout_alignEnd="@+id/button4"
+        android:layout_alignRight="@+id/button4"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="Submit"
+        android:background="@drawable/buttonshape"
+        android:textColor="@color/white"
+        android:layout_below="@+id/numberPicker"
+        android:layout_alignLeft="@+id/radioGroup1"
+        android:layout_alignStart="@+id/radioGroup1"
+        android:layout_marginTop="20dp"
+        android:layout_alignRight="@+id/numberPicker"
+        android:layout_alignEnd="@+id/numberPicker" />
+
+
+</RelativeLayout>
+

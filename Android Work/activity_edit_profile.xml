@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="37dp"
+        android:text="Edit Profile"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/green"/>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="UserName"
+        android:textColorHint="@color/hint"
+        android:layout_marginTop="20dp"
+        android:inputType="textPersonName"
+        android:gravity="center"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="School"
+        android:textColorHint="@color/hint"
+        android:layout_marginTop="10dp"
+        android:inputType="textPersonName"
+        android:gravity="center"
+        android:layout_below="@+id/editText1"
+        android:layout_alignStart="@+id/editText1"
+        android:layout_alignLeft="@+id/editText1"/>
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="College"
+        android:textColorHint="@color/hint"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_alignLeft="@+id/editText2"/>
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Work"
+        android:textColorHint="@color/hint"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_below="@+id/editText4"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Contact No"
+        android:layout_marginTop="10dp"
+        android:inputType="phone"
+        android:gravity="center"
+        android:textColorHint="@color/hint"
+        android:layout_below="@+id/editText5"
+        android:layout_alignStart="@+id/editText5"
+        android:layout_alignLeft="@+id/editText5"/>
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="HomeTown"
+        android:gravity="center"
+        android:textColorHint="@color/hint"
+        android:layout_marginTop="10dp"
+        android:inputType="textPostalAddress"
+        android:layout_below="@+id/editText7"
+        android:layout_alignStart="@+id/editText7"
+        android:layout_alignLeft="@+id/editText7"/>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="210dp"
+        android:layout_height="40dp"
+        android:text="Edit"
+        android:background="@drawable/buttonshape"
+        android:textColor="@color/white"
+        android:layout_below="@+id/editText6"
+        android:layout_alignEnd="@+id/editText6"
+        android:layout_alignRight="@+id/editText6"
+        android:layout_marginTop="30dp" />
+
+
+
+</RelativeLayout>
