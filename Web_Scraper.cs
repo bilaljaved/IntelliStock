@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using Quartz;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Web;
 
 namespace IntelliStock_WebService
 {
-    public class Web_Scraper
+    public class Web_Scraper : IJob
     {
 
         public string test { get; set; }
@@ -132,8 +133,17 @@ namespace IntelliStock_WebService
         }
         public DateTime currentDateTime { get; set; }
 
-
         DBC db = new DBC();
+
+        // For scheduling...
+        public void Execute(IJobExecutionContext context)
+        {
+
+            //do your action here.
+
+            startScrapping();
+        }
+
         public void startScrapping() 
         {            
            
@@ -149,8 +159,8 @@ namespace IntelliStock_WebService
                 document = webGet.Load(linkToKSE);
 
                 ///////////// KSE data.. //////                            
-        //        int total_tables = 32;
-          //      int total_companies = 350;
+                //int total_tables = 32;
+                //int total_companies = 350;
 
                 int total_tables = 5;
                 int total_companies = 54;
@@ -3340,7 +3350,7 @@ namespace IntelliStock_WebService
             
             Symbols_Table oneEntryForOneSymbol = new Symbols_Table();
 
-
+            oneEntryForOneSymbol.symbolID = id;
             oneEntryForOneSymbol.symbol = arr[1].Trim();
             oneEntryForOneSymbol.category = category;
             oneEntryForOneSymbol.ldcp = double.Parse(arr[2]);
@@ -3350,6 +3360,7 @@ namespace IntelliStock_WebService
             oneEntryForOneSymbol.current = double.Parse(arr[6]);
             oneEntryForOneSymbol.change = double.Parse(arr[7]);
             oneEntryForOneSymbol.volume = double.Parse(arr[8]);
+            oneEntryForOneSymbol.date = DateTime.Now;
 
 
             symbol_list.Add(oneEntryForOneSymbol);
