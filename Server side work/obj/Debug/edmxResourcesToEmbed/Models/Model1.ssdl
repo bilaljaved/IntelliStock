@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KSE_DATABASEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACTUAL_SUMMARY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="MARKET_STATUS" Type="varchar" MaxLength="50" />
+    <Property Name="MARKET_VOLUME" Type="float" />
+    <Property Name="MARKET_VALUE" Type="float" />
+    <Property Name="MARKET_TRADES" Type="float" />
+    <Property Name="SYMBOLS_ADVANCED" Type="float" />
+    <Property Name="SYMBOLS_DECLINED" Type="float" />
+    <Property Name="SYMBOLS_UNCHANGED" Type="float" />
+    <Property Name="SYMBOLS_TOTAL" Type="float" />
+    <Property Name="KSE100_CURRENT" Type="float" />
+    <Property Name="KSE100_HIGH" Type="float" />
+    <Property Name="KSE100_LOW" Type="float" />
+    <Property Name="KSE100_CHANGE" Type="float" />
+    <Property Name="ALLSHARE_CURRENT" Type="float" />
+    <Property Name="ALLSHARE_HIGH" Type="float" />
+    <Property Name="ALLSHARE_LOW" Type="float" />
+    <Property Name="ALLSHARE_CHANGE" Type="float" />
+    <Property Name="KSE30_CURRENT" Type="float" />
+    <Property Name="KSE30_HIGH" Type="float" />
+    <Property Name="KSE30_LOW" Type="float" />
+    <Property Name="KSE30_CHANGE" Type="float" />
+    <Property Name="KMI30_CURRENT" Type="float" />
+    <Property Name="KMI30_HIGH" Type="float" />
+    <Property Name="KMI30_LOW" Type="float" />
+    <Property Name="KMI30_CHANGE" Type="float" />
+    <Property Name="DATE" Type="datetime" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SUMMARY">
+    <Key>
+      <PropertyRef Name="SYMBOL_ID" />
+    </Key>
+    <Property Name="SYMBOL_ID" Type="int" Nullable="false" />
+    <Property Name="DATE" Type="datetime" />
+    <Property Name="SYMBOL_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="SYMBOL_CATEGORY" Type="varchar" MaxLength="100" />
+    <Property Name="SYMBOL_LDCP" Type="float" />
+    <Property Name="SYMBOL_OPEN" Type="float" />
+    <Property Name="SYMBOL_HIGH" Type="float" />
+    <Property Name="SYMBOL_LOW" Type="float" />
+    <Property Name="SYMBOL_CURRENT" Type="float" />
+    <Property Name="SYMBOL_CHANGE" Type="float" />
+    <Property Name="SYMBOL_VOLUME" Type="float" />
+  </EntityType>
+  <EntityType Name="SYSTEM_PREDICTION">
+    <Key>
+      <PropertyRef Name="SPID" />
+    </Key>
+    <Property Name="SPID" Type="int" Nullable="false" />
+    <Property Name="DATE" Type="date" />
+    <Property Name="SYMBOL" Type="varchar" MaxLength="50" />
+    <Property Name="PREDICTION" Type="varchar" MaxLength="50" />
+    <Property Name="STATUS" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="USER_PREDICTION">
+    <Key>
+      <PropertyRef Name="UPID" />
+    </Key>
+    <Property Name="UPID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DATE" Type="date" />
+    <Property Name="SYMBOL" Type="varchar" MaxLength="50" />
+    <Property Name="PREDICTION" Type="float" />
+    <Property Name="STATUS" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="USER_STATUS">
+    <Key>
+      <PropertyRef Name="USID" />
+    </Key>
+    <Property Name="USID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="STATUS" Type="varchar" MaxLength="50" />
+    <Property Name="DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="LAST_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="USER_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="GENDER" Type="varchar" MaxLength="10" />
+    <Property Name="MOBILE" Type="varchar" MaxLength="20" />
+    <Property Name="CITY" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_USER_PREDICTION_ToTable">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="1" />
+    <End Role="USER_PREDICTION" Type="Self.USER_PREDICTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER_PREDICTION">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_STATUS_ToTable">
+    <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+    <End Role="USER_STATUS" Type="Self.USER_STATUS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER_STATUS">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KSE_DATABASEModelStoreContainer">
+    <EntitySet Name="ACTUAL_SUMMARY" EntityType="Self.ACTUAL_SUMMARY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUMMARY" EntityType="Self.SUMMARY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SYSTEM_PREDICTION" EntityType="Self.SYSTEM_PREDICTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_PREDICTION" EntityType="Self.USER_PREDICTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_STATUS" EntityType="Self.USER_STATUS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_USER_PREDICTION_ToTable" Association="Self.FK_USER_PREDICTION_ToTable">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USER_PREDICTION" EntitySet="USER_PREDICTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_STATUS_ToTable" Association="Self.FK_USER_STATUS_ToTable">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USER_STATUS" EntitySet="USER_STATUS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

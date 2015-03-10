@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KSE_DATABASEModelStoreContainer" CdmEntityContainer="KSE_DATABASEEntities">
+    <EntitySetMapping Name="ACTUAL_SUMMARY">
+      <EntityTypeMapping TypeName="KSE_DATABASEModel.ACTUAL_SUMMARY">
+        <MappingFragment StoreEntitySet="ACTUAL_SUMMARY">
+          <ScalarProperty Name="MARKET_STATUS" ColumnName="MARKET_STATUS" />
+          <ScalarProperty Name="MARKET_VOLUME" ColumnName="MARKET_VOLUME" />
+          <ScalarProperty Name="MARKET_VALUE" ColumnName="MARKET_VALUE" />
+          <ScalarProperty Name="MARKET_TRADES" ColumnName="MARKET_TRADES" />
+          <ScalarProperty Name="SYMBOLS_ADVANCED" ColumnName="SYMBOLS_ADVANCED" />
+          <ScalarProperty Name="SYMBOLS_DECLINED" ColumnName="SYMBOLS_DECLINED" />
+          <ScalarProperty Name="SYMBOLS_UNCHANGED" ColumnName="SYMBOLS_UNCHANGED" />
+          <ScalarProperty Name="SYMBOLS_TOTAL" ColumnName="SYMBOLS_TOTAL" />
+          <ScalarProperty Name="KSE100_CURRENT" ColumnName="KSE100_CURRENT" />
+          <ScalarProperty Name="KSE100_HIGH" ColumnName="KSE100_HIGH" />
+          <ScalarProperty Name="KSE100_LOW" ColumnName="KSE100_LOW" />
+          <ScalarProperty Name="KSE100_CHANGE" ColumnName="KSE100_CHANGE" />
+          <ScalarProperty Name="ALLSHARE_CURRENT" ColumnName="ALLSHARE_CURRENT" />
+          <ScalarProperty Name="ALLSHARE_HIGH" ColumnName="ALLSHARE_HIGH" />
+          <ScalarProperty Name="ALLSHARE_LOW" ColumnName="ALLSHARE_LOW" />
+          <ScalarProperty Name="ALLSHARE_CHANGE" ColumnName="ALLSHARE_CHANGE" />
+          <ScalarProperty Name="KSE30_CURRENT" ColumnName="KSE30_CURRENT" />
+          <ScalarProperty Name="KSE30_HIGH" ColumnName="KSE30_HIGH" />
+          <ScalarProperty Name="KSE30_LOW" ColumnName="KSE30_LOW" />
+          <ScalarProperty Name="KSE30_CHANGE" ColumnName="KSE30_CHANGE" />
+          <ScalarProperty Name="KMI30_CURRENT" ColumnName="KMI30_CURRENT" />
+          <ScalarProperty Name="KMI30_HIGH" ColumnName="KMI30_HIGH" />
+          <ScalarProperty Name="KMI30_LOW" ColumnName="KMI30_LOW" />
+          <ScalarProperty Name="KMI30_CHANGE" ColumnName="KMI30_CHANGE" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUMMARies">
+      <EntityTypeMapping TypeName="KSE_DATABASEModel.SUMMARY">
+        <MappingFragment StoreEntitySet="SUMMARY">
+          <ScalarProperty Name="SYMBOL_ID" ColumnName="SYMBOL_ID" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="SYMBOL_NAME" ColumnName="SYMBOL_NAME" />
+          <ScalarProperty Name="SYMBOL_CATEGORY" ColumnName="SYMBOL_CATEGORY" />
+          <ScalarProperty Name="SYMBOL_LDCP" ColumnName="SYMBOL_LDCP" />
+          <ScalarProperty Name="SYMBOL_OPEN" ColumnName="SYMBOL_OPEN" />
+          <ScalarProperty Name="SYMBOL_HIGH" ColumnName="SYMBOL_HIGH" />
+          <ScalarProperty Name="SYMBOL_LOW" ColumnName="SYMBOL_LOW" />
+          <ScalarProperty Name="SYMBOL_CURRENT" ColumnName="SYMBOL_CURRENT" />
+          <ScalarProperty Name="SYMBOL_CHANGE" ColumnName="SYMBOL_CHANGE" />
+          <ScalarProperty Name="SYMBOL_VOLUME" ColumnName="SYMBOL_VOLUME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SYSTEM_PREDICTION">
+      <EntityTypeMapping TypeName="KSE_DATABASEModel.SYSTEM_PREDICTION">
+        <MappingFragment StoreEntitySet="SYSTEM_PREDICTION">
+          <ScalarProperty Name="SPID" ColumnName="SPID" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="SYMBOL" ColumnName="SYMBOL" />
+          <ScalarProperty Name="PREDICTION" ColumnName="PREDICTION" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_PREDICTION">
+      <EntityTypeMapping TypeName="KSE_DATABASEModel.USER_PREDICTION">
+        <MappingFragment StoreEntitySet="USER_PREDICTION">
+          <ScalarProperty Name="UPID" ColumnName="UPID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="SYMBOL" ColumnName="SYMBOL" />
+          <ScalarProperty Name="PREDICTION" ColumnName="PREDICTION" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_STATUS">
+      <EntityTypeMapping TypeName="KSE_DATABASEModel.USER_STATUS">
+        <MappingFragment StoreEntitySet="USER_STATUS">
+          <ScalarProperty Name="USID" ColumnName="USID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="KSE_DATABASEModel.USER">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="MOBILE" ColumnName="MOBILE" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

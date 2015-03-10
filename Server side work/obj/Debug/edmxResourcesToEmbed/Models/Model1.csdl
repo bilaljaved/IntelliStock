@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KSE_DATABASEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ACTUAL_SUMMARY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="MARKET_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MARKET_VOLUME" Type="Double" />
+    <Property Name="MARKET_VALUE" Type="Double" />
+    <Property Name="MARKET_TRADES" Type="Double" />
+    <Property Name="SYMBOLS_ADVANCED" Type="Double" />
+    <Property Name="SYMBOLS_DECLINED" Type="Double" />
+    <Property Name="SYMBOLS_UNCHANGED" Type="Double" />
+    <Property Name="SYMBOLS_TOTAL" Type="Double" />
+    <Property Name="KSE100_CURRENT" Type="Double" />
+    <Property Name="KSE100_HIGH" Type="Double" />
+    <Property Name="KSE100_LOW" Type="Double" />
+    <Property Name="KSE100_CHANGE" Type="Double" />
+    <Property Name="ALLSHARE_CURRENT" Type="Double" />
+    <Property Name="ALLSHARE_HIGH" Type="Double" />
+    <Property Name="ALLSHARE_LOW" Type="Double" />
+    <Property Name="ALLSHARE_CHANGE" Type="Double" />
+    <Property Name="KSE30_CURRENT" Type="Double" />
+    <Property Name="KSE30_HIGH" Type="Double" />
+    <Property Name="KSE30_LOW" Type="Double" />
+    <Property Name="KSE30_CHANGE" Type="Double" />
+    <Property Name="KMI30_CURRENT" Type="Double" />
+    <Property Name="KMI30_HIGH" Type="Double" />
+    <Property Name="KMI30_LOW" Type="Double" />
+    <Property Name="KMI30_CHANGE" Type="Double" />
+    <Property Name="DATE" Type="DateTime" Precision="3" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="SUMMARY">
+    <Key>
+      <PropertyRef Name="SYMBOL_ID" />
+    </Key>
+    <Property Name="SYMBOL_ID" Type="Int32" Nullable="false" />
+    <Property Name="DATE" Type="DateTime" Precision="3" />
+    <Property Name="SYMBOL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SYMBOL_CATEGORY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SYMBOL_LDCP" Type="Double" />
+    <Property Name="SYMBOL_OPEN" Type="Double" />
+    <Property Name="SYMBOL_HIGH" Type="Double" />
+    <Property Name="SYMBOL_LOW" Type="Double" />
+    <Property Name="SYMBOL_CURRENT" Type="Double" />
+    <Property Name="SYMBOL_CHANGE" Type="Double" />
+    <Property Name="SYMBOL_VOLUME" Type="Double" />
+  </EntityType>
+  <EntityType Name="SYSTEM_PREDICTION">
+    <Key>
+      <PropertyRef Name="SPID" />
+    </Key>
+    <Property Name="SPID" Type="Int32" Nullable="false" />
+    <Property Name="DATE" Type="DateTime" Precision="0" />
+    <Property Name="SYMBOL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PREDICTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="USER_PREDICTION">
+    <Key>
+      <PropertyRef Name="UPID" />
+    </Key>
+    <Property Name="UPID" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DATE" Type="DateTime" Precision="0" />
+    <Property Name="SYMBOL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PREDICTION" Type="Double" />
+    <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="USER" Relationship="Self.FK_USER_PREDICTION_ToTable" FromRole="USER_PREDICTION" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="USER_STATUS">
+    <Key>
+      <PropertyRef Name="USID" />
+    </Key>
+    <Property Name="USID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="USER" Relationship="Self.FK_USER_STATUS_ToTable" FromRole="USER_STATUS" ToRole="USERS" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="GENDER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MOBILE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CITY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="USER_PREDICTION" Relationship="Self.FK_USER_PREDICTION_ToTable" FromRole="USERS" ToRole="USER_PREDICTION" />
+    <NavigationProperty Name="USER_STATUS" Relationship="Self.FK_USER_STATUS_ToTable" FromRole="USERS" ToRole="USER_STATUS" />
+  </EntityType>
+  <Association Name="FK_USER_PREDICTION_ToTable">
+    <End Role="USERS" Type="Self.USER" Multiplicity="1" />
+    <End Role="USER_PREDICTION" Type="Self.USER_PREDICTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER_PREDICTION">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_STATUS_ToTable">
+    <End Role="USERS" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="USER_STATUS" Type="Self.USER_STATUS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USERS">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USER_STATUS">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KSE_DATABASEEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACTUAL_SUMMARY" EntityType="Self.ACTUAL_SUMMARY" />
+    <EntitySet Name="SUMMARies" EntityType="Self.SUMMARY" />
+    <EntitySet Name="SYSTEM_PREDICTION" EntityType="Self.SYSTEM_PREDICTION" />
+    <EntitySet Name="USER_PREDICTION" EntityType="Self.USER_PREDICTION" />
+    <EntitySet Name="USER_STATUS" EntityType="Self.USER_STATUS" />
+    <EntitySet Name="USERS" EntityType="Self.USER" />
+    <AssociationSet Name="FK_USER_PREDICTION_ToTable" Association="Self.FK_USER_PREDICTION_ToTable">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USER_PREDICTION" EntitySet="USER_PREDICTION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_STATUS_ToTable" Association="Self.FK_USER_STATUS_ToTable">
+      <End Role="USERS" EntitySet="USERS" />
+      <End Role="USER_STATUS" EntitySet="USER_STATUS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
