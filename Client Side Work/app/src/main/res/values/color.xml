@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#0D0D0D</color>
+    <color name="grey">#181818</color>
+    <color name="green">#76BF00</color>
+    <color name="hint">#3C3C3C</color>
+    <color name="white">#FFFFFF</color>
+    <color name="myColor">#156cff</color>
+
+    <color name="list_item_title">#fff</color>
+    <color name="list_background">#303030</color>
+    <color name="list_background_pressed">#992416</color>
+    <color name="list_divider">#272727</color>
+    <color name="counter_text_bg">#626262</color>
+    <color name="counter_text_color">#c5c4c4</color>
+
+</resources>
